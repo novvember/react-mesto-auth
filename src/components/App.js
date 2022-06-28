@@ -129,7 +129,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-mesto-auth">
       <CurrentUserContext.Provider value={currentUser}>
         <div className="content">
           <Routes>
