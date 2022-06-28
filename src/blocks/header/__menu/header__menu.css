@@ -4,4 +4,42 @@
   list-style: none;
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
+  /* Text */
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .header__menu {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header__menu {
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header_wrappable .header__menu {
+    order: -1;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #545454;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 40px 30px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    display: none;
+  }
 }

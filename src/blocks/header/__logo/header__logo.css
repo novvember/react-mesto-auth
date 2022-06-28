@@ -3,6 +3,7 @@
   height: 33px;
   object-fit: contain;
   object-position: left;
+  display: block;
 }
 
 @media screen and (max-width: 425px) {

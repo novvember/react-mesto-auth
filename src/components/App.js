@@ -136,8 +136,8 @@ function App() {
             <Route
               path="/"
               element={
-                <Header>
-                    <p className="header__menu-item">Email</p>
+                <Header isWrappable={true}>
+                    <p className="header__menu-item">email@email.ru</p>
                     <button href="#" className="header__menu-item">Выйти</button>
                 </Header>
               }
