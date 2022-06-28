@@ -16,6 +16,7 @@
   /* Расположение в сетке */
   display: none;
   grid-area: button;
+  align-items: baseline;
 }
 
 @media (max-width: 425px) {
