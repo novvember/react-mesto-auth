@@ -20,12 +20,12 @@
   color: #FFFFFF;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .header__menu {
     font-size: 14px;
     line-height: 17px;
   }
-}
+} */
 
 @media (max-width: 425px) {
   .header__menu {
@@ -33,7 +33,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .header_wrappable .header__menu {
     /* Размеры */
     display: none;

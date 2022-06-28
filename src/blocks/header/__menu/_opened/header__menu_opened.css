@@ -1,4 +1,4 @@
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .header_wrappable .header__menu_opened {
     display: flex;
   }
