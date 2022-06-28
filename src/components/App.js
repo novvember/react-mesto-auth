@@ -142,6 +142,7 @@ function App() {
                 </Header>
               }
             />
+
             <Route
               path="sign-up"
               element={
@@ -150,6 +151,7 @@ function App() {
                 </Header>
               }
             />
+
             <Route
               path="*"
               element={
@@ -162,6 +164,7 @@ function App() {
 
           <main>
             <Routes>
+
               <Route
                 path="/"
                 element={
@@ -178,14 +181,15 @@ function App() {
               />
 
               <Route
-                path="sign-up"
-                element={ <Register /> }
+                path="/sign-up"
+                element={<Register />}
               />
 
               <Route
-                path="*"
-                element={ <Login /> }
+                path="/sign-in"
+                element={<Login />}
               />
+
             </Routes>
           </main>
 

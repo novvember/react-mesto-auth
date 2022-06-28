@@ -23,7 +23,6 @@ function Header({ children, isWrappable }) {
         (isWrappable ? " header_wrappable" : "")
       }
     >
-      <div className="header__main">
         <img
           src={logo}
           alt="Сервис Место-Россия. Логотип"
@@ -41,7 +40,6 @@ function Header({ children, isWrappable }) {
             onClick={handleOpenMenu}
           ></button>
         )}
-      </div>
 
       {links && (
         <ul

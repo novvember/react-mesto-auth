@@ -1,14 +1,18 @@
 .header {
-  padding: 0;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
-  display: flex;
-  justify-content: space-between;
+  /* Расположение элементов */
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-areas: "logo menu";
+  justify-items: end;
   align-items: center;
 }
 
 @media (max-width: 425px) {
   .header_wrappable {
-    flex-direction: column;
-    align-items: stretch;
+    /* Сворачивающееся меню */
+    grid-template-areas:
+      "menu menu"
+      "logo button";
   }
 }

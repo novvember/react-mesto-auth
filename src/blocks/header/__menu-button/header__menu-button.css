@@ -1,15 +1,22 @@
 .header__menu-button {
-  display: none;
+  /* Сброс стилей */
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  /* Размеры */
   width: 25px;
   height: 25px;
+  /* Иконка */
   background-image: url(../../../images/icon__burger.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  /* Анимация */
   transition: opacity .3s;
-  cursor: pointer;
+  /* Расположение в сетке */
+  display: none;
+  grid-area: button;
+  margin-right: 30px;
 }
 
 @media (max-width: 425px) {
