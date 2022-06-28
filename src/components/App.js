@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./Header";
 import Main from "./Main";
@@ -126,49 +127,87 @@ function App() {
   }
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <div className="content">
-        <Header />
+    <BrowserRouter>
+      <CurrentUserContext.Provider value={currentUser}>
+        <div className="content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Header />
+              }
+            />
+            <Route
+              path="sign-up"
+              element={
+                <Header />
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <Header />
+              }
+            />
+          </Routes>
 
-        <Main
-          onEditProfile={handleEditProfileClick}
-          onAddPlace={handleAddPlaceClick}
-          onEditAvatar={handleEditAvatarClick}
-          onCardClick={handleCardClick}
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        />
+          <main>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Main
+                    onEditProfile={handleEditProfileClick}
+                    onAddPlace={handleAddPlaceClick}
+                    onEditAvatar={handleEditAvatarClick}
+                    onCardClick={handleCardClick}
+                    cards={cards}
+                    onCardLike={handleCardLike}
+                    onCardDelete={handleCardDelete}
+                  />
+                }
+              />
 
-        <Footer />
+              <Route
+                path="sign-up"
+              />
 
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
+              <Route
+                path="*"
+              />
+            </Routes>
+          </main>
 
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-        />
+          <Footer />
 
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlace={handleAddPlace}
-        />
+          <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
+          />
 
-        <ConfirmActionPopup
-          isOpen={!!toBeDeletedCard}
-          onClose={closeAllPopups}
-          onConfirm={handleConfirmDelete}
-        />
+          <EditProfilePopup
+            isOpen={isEditProfilePopupOpen}
+            onClose={closeAllPopups}
+            onUpdateUser={handleUpdateUser}
+          />
 
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-      </div>
-    </CurrentUserContext.Provider>
+          <AddPlacePopup
+            isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
+            onAddPlace={handleAddPlace}
+          />
+
+          <ConfirmActionPopup
+            isOpen={!!toBeDeletedCard}
+            onClose={closeAllPopups}
+            onConfirm={handleConfirmDelete}
+          />
+
+          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+        </div>
+      </CurrentUserContext.Provider>
+    </BrowserRouter>
   );
 }
 
