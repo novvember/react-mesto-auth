@@ -52,7 +52,7 @@
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
 
-/* Popup */
+/* Popups */
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/popup/_opened/popup_opened.css);
 @import url(./blocks/popup/__container/popup__container.css);
@@ -74,6 +74,7 @@
 
 @import url(./blocks/popup/__info-message/popup__info-message.css);
 @import url(./blocks/popup/__info-message/_type/popup__info-message_type_fail.css);
+@import url(./blocks/popup/__info-message/_type/popup__info-message_type_success.css);
 
 /* Login */
 @import url(./blocks/login/login.css);

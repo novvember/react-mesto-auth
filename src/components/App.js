@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import Main from "./Main";
 import Footer from "./Footer";
@@ -23,10 +23,11 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
     React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [isInfoPopupOpen, setIsInfoPopupOpen] = React.useState(false);
-  // Выбранные карточки для обрабтки попапами
+  // Данные для обработки попапами
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [toBeDeletedCard, setToBeDeletedCard] = React.useState(null);
+  const [infoMessage, setInfoMessage] = React.useState(null);
+
   // Пользователь
   const [currentUser, setCurrentUser] = React.useState({});
   // Карточки
@@ -67,11 +68,15 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
     setToBeDeletedCard(null);
-    setIsInfoPopupOpen(false);
+    setInfoMessage(null);
   }
 
   function handleCardClick(card) {
     setSelectedCard(card);
+  }
+
+  function handleShowInfoMessage(message) {
+    setInfoMessage(message);
   }
 
   // Функции с изменением/обновлением данных на странице
@@ -155,7 +160,9 @@ function App() {
               }
             />
 
-            <Route path="/sign-up" element={<Register />} />
+            <Route path="/sign-up" element={
+              <Register handleShowInfoMessage={handleShowInfoMessage}/>
+            } />
 
             <Route path="/sign-in" element={<Login />} />
 
@@ -197,9 +204,7 @@ function App() {
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
           <InfoPopup
-            message="Успешно!"
-            isSuccessful={true}
-            isOpened={isInfoPopupOpen}
+            message={infoMessage}
             onClose={closeAllPopups}
           />
         </div>
