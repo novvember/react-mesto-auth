@@ -42,17 +42,17 @@ function Header({ children, isWrappable }) {
         )}
 
       {links && (
-        <ul
-          className={
-            "header__menu" + (isMenuOpened ? " header__menu_opened" : "")
-          }
-        >
-          {[...links].map((item, pos) => (
-            <li className="header__menu-item" key={pos}>
-              {item}
-            </li>
-          ))}
-        </ul>
+        <nav className={
+          "header__menu" + (isMenuOpened ? " header__menu_opened" : "")
+        }>
+          <ul className="header__menu-list">
+            {[...links].map((item, pos) => (
+              <li className="header__menu-item" key={pos}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </nav>
       )}
     </header>
   );
