@@ -137,6 +137,15 @@ function App() {
       .catch(console.error);
   }
 
+  // Авторизация
+  function handleLogin() {
+    setIsLoggedIn(true);
+  }
+
+  function handleLogout() {
+    setIsLoggedIn(false);
+  }
+
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <CurrentUserContext.Provider value={currentUser}>
@@ -161,10 +170,15 @@ function App() {
             />
 
             <Route path="/sign-up" element={
-              <Register handleShowInfoMessage={handleShowInfoMessage}/>
+              <Register handleShowInfoMessage={handleShowInfoMessage} />
             } />
 
-            <Route path="/sign-in" element={<Login />} />
+            <Route path="/sign-in" element={
+                <Login
+                  handleShowInfoMessage={handleShowInfoMessage}
+                  onLogin={handleLogin}
+                />
+              } />
 
             <Route path="*" element={
               isLoggedIn ? (
