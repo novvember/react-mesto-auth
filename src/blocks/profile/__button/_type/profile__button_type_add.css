@@ -9,12 +9,12 @@
 
 @media screen and (max-width: 768px) {
   .profile__button_type_add {
-    width: 100%;
+    background-size: 16px 16px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .profile__button_type_add {
-    background-size: 16px 16px;
+    width: 100%;
   }
 }

@@ -6,7 +6,7 @@
   max-width: 358px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .login {
     padding-block: 40px;
   }

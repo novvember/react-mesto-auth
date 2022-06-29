@@ -10,7 +10,7 @@
   grid-area: logo;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .header__logo {
     /* Размеры */
     width: 104px;

@@ -11,11 +11,6 @@
 @media screen  and (max-width: 768px) {
   .profile__info {
     max-width: 100%; /* На неболших экранах ширина полностью */
-  }
-}
-
-@media screen  and (max-width: 425px) {
-  .profile__info {
     gap: 8px;
     margin-bottom: 11px;
   }
