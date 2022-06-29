@@ -11,6 +11,7 @@ import ConfirmActionPopup from "./ConfirmActionPopup";
 import InfoPopup from "./InfoPopup";
 import Register from "./Register";
 import Login from "./Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import api from "../utils/api";
@@ -31,7 +32,7 @@ function App() {
   // Карточки
   const [cards, setCards] = React.useState([]);
   // Авторизация пользователя
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   /**
    * Получение информации о пользователе и исходных карточек при открытии страницы
@@ -136,10 +137,11 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         <div className="content">
           <Routes>
+
             <Route
               path="/"
               element={
-                loggedIn ? (
+                <ProtectedRoute isLoggiedIn={isLoggedIn}>
                   <Main
                     onEditProfile={handleEditProfileClick}
                     onAddPlace={handleAddPlaceClick}
@@ -149,9 +151,7 @@ function App() {
                     onCardLike={handleCardLike}
                     onCardDelete={handleCardDelete}
                   />
-                ) : (
-                  <Navigate to="/sign-in" />
-                )
+                </ProtectedRoute>
               }
             />
 
@@ -160,7 +160,7 @@ function App() {
             <Route path="/sign-in" element={<Login />} />
 
             <Route path="*" element={
-              loggedIn ? (
+              isLoggedIn ? (
                 <Navigate to="/" />
               ) : (
                 <Navigate to="/sign-in" />
