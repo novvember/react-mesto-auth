@@ -12,7 +12,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   /* Анимация */
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   /* Расположение в сетке */
   display: none;
   grid-area: button;
@@ -26,5 +26,5 @@
 }
 
 .header__menu-button:hover {
-  opacity: .6;
+  opacity: 0.6;
 }

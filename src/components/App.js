@@ -148,21 +148,20 @@ function App() {
       auth
         .checkToken(token)
         .then((res) => {
-          console.log(res);
           setEmail(res.data.email);
           setIsLoggedIn(true);
           navigate("/");
         })
         .catch(console.error);
     }
-  }, []);
+  }, [navigate]);
 
   function handleLogin() {
     setIsLoggedIn(true);
   }
 
   function handleLogout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
   }
 

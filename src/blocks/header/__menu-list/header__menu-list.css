@@ -12,12 +12,12 @@
   /* Расположение в блоке */
   grid-area: menu;
   /* Text */
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
