@@ -162,6 +162,7 @@ function App() {
   }
 
   function handleLogout() {
+    localStorage.removeItem('token');
     setIsLoggedIn(false);
   }
 
@@ -182,6 +183,7 @@ function App() {
                   onCardLike={handleCardLike}
                   onCardDelete={handleCardDelete}
                   email={email}
+                  onLogout={handleLogout}
                 />
               </ProtectedRoute>
             }
