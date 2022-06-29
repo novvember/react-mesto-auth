@@ -3,7 +3,6 @@ import React from "react";
 import Card from "./Card";
 import Header from "./Header";
 import defaultAvatar from "../images/user-avatar_default.svg";
-
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function Main({
@@ -14,13 +13,14 @@ function Main({
   cards,
   onCardLike,
   onCardDelete,
+  email,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <>
       <Header isWrappable={true}>
-        <p className="header__menu-item">email@email.ru</p>
+        <p className="header__menu-item">{email}</p>
         <button href="#" className="header__menu-item">Выйти</button>
       </Header>
 
