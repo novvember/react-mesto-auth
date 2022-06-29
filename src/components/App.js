@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link, Navigate } from "react-router-dom";
 
-import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
@@ -14,7 +13,6 @@ import Register from "./Register";
 import Login from "./Login";
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
-
 import api from "../utils/api";
 
 function App() {
@@ -32,6 +30,8 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   // Карточки
   const [cards, setCards] = React.useState([]);
+  // Авторизация пользователя
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   /**
    * Получение информации о пользователе и исходных карточек при открытии страницы
@@ -139,38 +139,7 @@ function App() {
             <Route
               path="/"
               element={
-                <Header isWrappable={true}>
-                    <p className="header__menu-item">email@email.ru</p>
-                    <button href="#" className="header__menu-item">Выйти</button>
-                </Header>
-              }
-            />
-
-            <Route
-              path="sign-up"
-              element={
-                <Header>
-                  <Link to="/sign-in" className="header__menu-item">Войти</Link>
-                </Header>
-              }
-            />
-
-            <Route
-              path="*"
-              element={
-                <Header>
-                  <Link to="/sign-up" className="header__menu-item">Регистрация</Link>
-                </Header>
-              }
-            />
-          </Routes>
-
-          <main>
-            <Routes>
-
-              <Route
-                path="/"
-                element={
+                loggedIn ? (
                   <Main
                     onEditProfile={handleEditProfileClick}
                     onAddPlace={handleAddPlaceClick}
@@ -180,24 +149,27 @@ function App() {
                     onCardLike={handleCardLike}
                     onCardDelete={handleCardDelete}
                   />
-                }
-              />
+                ) : (
+                  <Navigate to="/sign-in" />
+                )
+              }
+            />
 
-              <Route
-                path="/sign-up"
-                element={<Register />}
-              />
+            <Route path="/sign-up" element={<Register />} />
 
-              <Route
-                path="/sign-in"
-                element={<Login />}
-              />
+            <Route path="/sign-in" element={<Login />} />
 
-            </Routes>
-          </main>
-
+            <Route path="*" element={
+              loggedIn ? (
+                <Navigate to="/" />
+              ) : (
+                <Navigate to="/sign-in" />
+              )
+            } />
+          </Routes>
           <Footer />
 
+          {/* Попапы */}
           <EditAvatarPopup
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
