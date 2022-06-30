@@ -9,5 +9,6 @@
     /* Отступ слева для компенсации кнопки справа при выравинвании по центру */
     padding-left: calc(18px + 10px);
     gap: 10px;
+    justify-content: center;
   }
 }
