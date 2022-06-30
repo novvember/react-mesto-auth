@@ -2,7 +2,6 @@ import React from "react";
 
 import Card from "./Card";
 import Header from "./Header";
-import defaultAvatar from "../images/user-avatar_default.svg";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function Main({
@@ -31,7 +30,7 @@ function Main({
         <section className="profile content__element">
           <div className="profile__avatar">
             <img
-              src={currentUser.avatar ?? defaultAvatar}
+              src={currentUser.avatar}
               alt="Фотография пользователя"
               className="profile__avatar-image"
             />
@@ -44,7 +43,7 @@ function Main({
           </div>
           <div className="profile__info">
             <div className="profile__name-block">
-              <h1 className="profile__name">{currentUser.name ?? ". . ."}</h1>
+              <h1 className="profile__name">{currentUser.name}</h1>
               <button
                 type="button"
                 className="profile__button profile__button_type_edit"
