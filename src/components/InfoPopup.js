@@ -1,6 +1,13 @@
 function InfoPopup({ message, onClose }) {
+  function handleOverlayClick(event) {
+    if (event.target === event.currentTarget) onClose(event);
+  }
+
   return (
-    <div className={`popup popup_type_info` + (message ? " popup_opened" : "")}>
+    <div
+      className={`popup popup_type_info` + (message ? " popup_opened" : "")}
+      onClick={handleOverlayClick}
+    >
       <div className="popup__container content__element">
         <p
           className={

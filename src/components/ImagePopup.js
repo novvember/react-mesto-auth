@@ -1,7 +1,12 @@
 function ImagePopup({ card, onClose }) {
+  function handleOverlayClick(event) {
+    if (event.target === event.currentTarget) onClose(event);
+  }
+
   return (
     <div
       className={`popup popup_type_image` + (card !== null && " popup_opened")}
+      onClick={handleOverlayClick}
     >
       <figure className="popup__image-container">
         <img
