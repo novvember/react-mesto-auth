@@ -33,12 +33,6 @@ export function authorize({email, password}) {
       return res.json().then((res) => {
         throw new Error(res.message);
       });
-    })
-    .then(res => {
-      if (res.token) {
-        localStorage.setItem('token', res.token);
-      }
-      return res;
     });
 }
 

@@ -23,7 +23,8 @@ function Login({ handleShowInfoMessage, onLogin }) {
     event.preventDefault();
     auth
       .authorize(inputs)
-      .then((res) => {
+      .then(res => {
+        if (res.token) localStorage.setItem('token', res.token);
         resetForm();
         onLogin();
         navigate("/");
