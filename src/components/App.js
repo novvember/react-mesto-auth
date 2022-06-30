@@ -15,7 +15,7 @@ import ProtectedRoute from "./ProtectedRoute";
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import api from "../utils/api";
-import * as auth from "../auth";
+import * as auth from "../utils/auth";
 
 function App() {
   // Состояние попапов
